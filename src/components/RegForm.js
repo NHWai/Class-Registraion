@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import bestie from "../assests/bestie.jpg";
 
 const RegForm = () => {
   const [formData, setFormData] = useState({
@@ -70,6 +71,13 @@ const RegForm = () => {
 
   return (
     <FormContainer>
+      <SubHeader>
+        <Logo>
+          <img src={bestie} />
+        </Logo>
+        <h3>Bestie Korean Club</h3>
+      </SubHeader>
+
       <Header>Student Registration Form</Header>
 
       <Form onSubmit={handleSubmit}>
@@ -121,10 +129,10 @@ const RegForm = () => {
           />
         </Field>
         <Field>
-          <Label htmlFor="fb">Facebook Acc/Link</Label>
+          <Label htmlFor="fb">Facebook Acc</Label>
           <Input
             name="fb"
-            type="url"
+            type="text"
             id="fb"
             autoComplete="off"
             onChange={handleChange}
@@ -179,15 +187,44 @@ const FormContainer = styled.div`
   max-width: 600px;
   padding: 10px 30px;
   border-radius: 10px;
-  box-shadow: 3px 3px 1px rgba(152, 125, 123, 0.2);
-  background-color: #faf1f1;
+  box-shadow: inset 0 0 10px rgba(178, 24, 7, 0.2);
 `;
 
 const Header = styled.h3`
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-transform: uppercase;
   color: rgba(178, 24, 7);
+  padding-bottom: 10px;
+  box-shadow: 0 3px 1px rgba(152, 125, 123, 0.2);
+`;
+
+const SubHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding-bottom: 10px;
+  margin: 20px 0;
+  box-shadow: 3px 3px 1px rgba(152, 125, 123, 0.2);
+
+  && h3 {
+    text-transform: uppercase;
+    color: rgba(178, 24, 7);
+    letter-spacing: 1.3px;
+  }
+`;
+
+const Logo = styled.div`
+  width: 50px;
+  heigth: 50px;
+  border-radius: 50%;
+  border: 2px solid red;
+  && img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
 `;
 
 const Form = styled.form`
