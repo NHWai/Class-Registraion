@@ -219,11 +219,12 @@ const Logo = styled.div`
   width: 50px;
   heigth: 50px;
   border-radius: 50%;
-  border: 2px solid red;
+  border: 2px solid rgba(200, 24, 7);
   && img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    transform: translate(0, 3%);
   }
 `;
 
