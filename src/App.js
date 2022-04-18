@@ -1,12 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import RegForm from "./components/RegForm";
-import bestie from "./assests/bestie.jpg";
 
 function App() {
+  const [dark, setDark] = React.useState(false);
+
+  function handleDark() {
+    setDark((pre) => !pre);
+  }
+
   return (
-    <Container>
-      <RegForm />
+    <Container style={{ backgroundColor: dark ? "#000" : "#fff" }}>
+      <RegForm handleDark={handleDark} />
     </Container>
   );
 }
@@ -16,7 +21,6 @@ const Container = styled.div`
   padding: 10px;
   display: grid;
   place-items: center;
-  background-color: #ffe5b4;
 `;
 
 export default App;

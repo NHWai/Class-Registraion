@@ -3,7 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import bestie from "../assests/bestie.jpg";
 
-const RegForm = () => {
+const RegForm = ({ handleDark }) => {
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -69,20 +69,72 @@ const RegForm = () => {
       .catch((err) => console.log(err));
   }
 
+  const [toggle, setToggle] = useState(false);
+  const [dark, setDark] = useState(false);
+
   return (
-    <FormContainer>
-      <SubHeader>
+    <FormContainer
+      style={{
+        color: dark ? "#fff" : "#000",
+        boxShadow: dark
+          ? "inset 0 0 10px rgba(255, 255, 255, 0.9)"
+          : "inset 0 0 10px rgba(178, 24, 7, 0.2)",
+      }}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <input
+            onChange={() => {
+              setDark((pre) => !pre);
+              handleDark();
+            }}
+            type="checkbox"
+            id="dk"
+            style={{ marginRight: "5px" }}
+          />
+          <label style={{ fontSize: "12px" }} htmlFor="dk">
+            Dark Mode
+          </label>
+        </div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <input
+            onChange={() => setToggle((pre) => !pre)}
+            type="checkbox"
+            id="kor"
+            style={{ marginRight: "5px" }}
+          />
+          <label style={{ fontSize: "12px" }} htmlFor="kor">
+            Read in Korean
+          </label>
+        </div>
+      </div>
+
+      <SubHeader
+        style={{
+          boxShadow: dark
+            ? " 1px 1px 5px 5px rgba(255, 255, 255, 0.5)"
+            : " 3px 3px 1px rgba(152, 125, 123, 0.2)",
+        }}
+      >
         <Logo>
           <img src={bestie} />
         </Logo>
         <h3>Bestie Korean Club</h3>
       </SubHeader>
 
-      <Header>Student Registration Form</Header>
+      <Header
+        style={{
+          boxShadow: dark
+            ? " 0 0 5px 5px rgba(255, 255, 255, 0.5)"
+            : " 0 3px 1px rgba(152, 125, 123, 0.2)",
+        }}
+      >
+        Student Registration Form
+      </Header>
 
       <Form onSubmit={handleSubmit}>
         <Field>
-          <Label htmlFor="name">Name</Label>
+          <Label htmlFor="name">{toggle ? "이름" : "Name"}</Label>
           <Input
             name="name"
             type="text"
@@ -94,7 +146,7 @@ const RegForm = () => {
           />
         </Field>
         <Field>
-          <Label htmlFor="age">Age</Label>
+          <Label htmlFor="age">{toggle ? "나이" : "Age"}</Label>
           <Input
             name="age"
             type="number"
@@ -106,7 +158,7 @@ const RegForm = () => {
           />
         </Field>
         <Field>
-          <Label htmlFor="ph">Phone</Label>
+          <Label htmlFor="ph">{toggle ? "전화 번호" : "Phone"}</Label>
           <Input
             name="phone"
             type="tel"
@@ -118,7 +170,7 @@ const RegForm = () => {
           />
         </Field>
         <Field>
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">{toggle ? "이메일" : "Email"}</Label>
           <Input
             name="email"
             type="email"
@@ -129,7 +181,9 @@ const RegForm = () => {
           />
         </Field>
         <Field>
-          <Label htmlFor="fb">Facebook Acc</Label>
+          <Label htmlFor="fb">
+            {toggle ? "페이스 북 계정" : "Facebook Acc"}
+          </Label>
           <Input
             name="fb"
             type="text"
@@ -141,7 +195,7 @@ const RegForm = () => {
           />
         </Field>
         <Field>
-          <Label htmlFor="class">Class</Label>
+          <Label htmlFor="class">{toggle ? "수업" : "Class"}</Label>
           <Select name="eClass" onChange={handleChange} id="class" required>
             <option value="">Please select</option>
             <option value="beginner">Beginner</option>
@@ -154,7 +208,7 @@ const RegForm = () => {
           </Select>
         </Field>
         <Field style={{ gridColumn: "1/-1" }}>
-          <Label htmlFor="address">Address</Label>
+          <Label htmlFor="address">{toggle ? "주소" : "Address"}</Label>
           <Textarea
             name="address"
             id="address"
@@ -166,7 +220,9 @@ const RegForm = () => {
           ></Textarea>
         </Field>
         <Field style={{ gridColumn: "1/-1" }}>
-          <Label htmlFor="eduBg">Educational Background</Label>
+          <Label htmlFor="eduBg">
+            {toggle ? "교육 배경" : "Educational Background"}
+          </Label>
           <Textarea
             name="eduBG"
             id="eduBg"
@@ -177,7 +233,11 @@ const RegForm = () => {
             required
           ></Textarea>
         </Field>
-        <Button type="submit">{!submit ? "Submit" : "Submitted"}</Button>
+        {toggle ? (
+          <Button type="submit">{!submit ? "제출하다" : "제출된"}</Button>
+        ) : (
+          <Button type="submit">{!submit ? "Submit" : "Submitted"}</Button>
+        )}
       </Form>
     </FormContainer>
   );
@@ -187,7 +247,7 @@ const FormContainer = styled.div`
   max-width: 600px;
   padding: 10px 30px;
   border-radius: 10px;
-  box-shadow: inset 0 0 10px rgba(178, 24, 7, 0.2);
+  // box-shadow: inset 0 0 10px rgba(178, 24, 7, 0.2);
 `;
 
 const Header = styled.h3`
@@ -196,7 +256,7 @@ const Header = styled.h3`
   text-transform: uppercase;
   color: rgba(178, 24, 7);
   padding-bottom: 10px;
-  box-shadow: 0 3px 1px rgba(152, 125, 123, 0.2);
+  padding: 10px 0;
 `;
 
 const SubHeader = styled.div`
@@ -206,7 +266,9 @@ const SubHeader = styled.div`
   gap: 30px;
   padding-bottom: 10px;
   margin: 20px 0;
-  box-shadow: 3px 3px 1px rgba(152, 125, 123, 0.2);
+  padding: 10px 0;
+
+  // box-shadow: 3px 3px 1px rgba(152, 125, 123, 0.2);
 
   && h3 {
     text-transform: uppercase;
