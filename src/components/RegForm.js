@@ -198,13 +198,11 @@ const RegForm = ({ handleDark }) => {
           <Label htmlFor="class">{toggle ? "수업" : "Class"}</Label>
           <Select name="eClass" onChange={handleChange} id="class" required>
             <option value="">Please select</option>
-            <option value="beginner">Beginner</option>
-            <option value="level1-1">Level 1-1</option>
-            <option value="level1-2">Level 1-2</option>
-            <option value="level2-1">Level 2-1</option>
-            <option value="level2-2">Level 2-2</option>
-            <option value="level3-1">Level 3-1</option>
-            <option value="level3-2">Level 3-2</option>
+            <option value="beginner_sectionA">Beginner Section A</option>
+            <option value="beginner_sectionB">Beginner Section B</option>
+            <option value="lvl1-1_sectionA">Level 1-1 Section A</option>
+            <option value="lvl1-1_sectionB">Level 1-1 Section B</option>
+            <option value="lvl1-2">Level 1-2</option>
           </Select>
         </Field>
         <Field style={{ gridColumn: "1/-1" }}>
