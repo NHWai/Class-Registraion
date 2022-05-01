@@ -35,7 +35,7 @@ const RegForm = ({ handleDark }) => {
     axios({
       method: "post",
       url: "https://v1.nocodeapi.com/bestiekorean/google_sheets/vbvqdTwinfpjMNCA",
-      params: { tabId: "Sheet1" },
+      params: { tabId: "May" },
       data: [
         [
           name,
