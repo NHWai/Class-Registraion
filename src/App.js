@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import RegForm from "./components/RegForm";
+import WelcomePage from "./components/WelcomePage";
+import Route from "./components/Route";
 
 function App() {
   const [dark, setDark] = React.useState(false);
@@ -11,7 +13,12 @@ function App() {
 
   return (
     <Container style={{ backgroundColor: dark ? "#000" : "#fff" }}>
-      <RegForm handleDark={handleDark} />
+      <Route path="/">
+        <WelcomePage />
+      </Route>
+      <Route path="/regform">
+        <RegForm handleDark={handleDark} />
+      </Route>
     </Container>
   );
 }

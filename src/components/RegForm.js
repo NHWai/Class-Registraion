@@ -76,9 +76,6 @@ const RegForm = ({ handleDark }) => {
     <FormContainer
       style={{
         color: dark ? "#fff" : "#000",
-        boxShadow: dark
-          ? "inset 0 0 10px rgba(255, 255, 255, 0.9)"
-          : "inset 0 0 10px rgba(178, 24, 7, 0.2)",
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -198,10 +195,11 @@ const RegForm = ({ handleDark }) => {
           <Label htmlFor="class">{toggle ? "수업" : "Class"}</Label>
           <Select name="eClass" onChange={handleChange} id="class" required>
             <option value="">Please select</option>
-            <option value="beginner_sectionA">Beginner Section A</option>
-            <option value="beginner_sectionB">Beginner Section B</option>
-            <option value="lvl1-1_sectionA">Level 1-1 Section A</option>
-            <option value="lvl1-1_sectionB">Level 1-1 Section B</option>
+            <option value="basic-Sec-A">Basic Section A</option>
+            <option value="basic-Sec-B">Basic Section B</option>
+            <option value="basic-Sec-C">Basic Section C</option>
+            <option value="basic-Sec-D">Basic Section D</option>
+            <option value="lvl1-1">Level 1-1</option>
             <option value="lvl1-2">Level 1-2</option>
           </Select>
         </Field>
@@ -245,7 +243,6 @@ const FormContainer = styled.div`
   max-width: 600px;
   padding: 10px 30px;
   border-radius: 10px;
-  // box-shadow: inset 0 0 10px rgba(178, 24, 7, 0.2);
 `;
 
 const Header = styled.h3`
