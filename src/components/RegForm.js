@@ -198,10 +198,10 @@ const RegForm = ({ handleDark }) => {
           <Label htmlFor="class">{toggle ? "수업" : "Class"}</Label>
           <Select name="eClass" onChange={handleChange} id="class" required>
             <option value="">Please select</option>
-            <option value="beginner_sectionA">BeginnerSection A-Wed,Thu,Fri- 7-8:30PM</option>
-            <option value="beginner_sectionB">BeginnerSection B-Sat,Sun- 10AM- 12PM</option>
-            <option value="beginner_sectionC">BeginnerSection C—Mon,Tue,Wed- 10-11:30AM</option>
-            <option value="beginner_sectionD">BeginnerSection D-Wed,Thu,Fri- 9:30-11AM</option>
+            <option value="beginner_sectionA">Basic Sec-A Wed,Thu,Fri- 7-8:30PM</option>
+            <option value="beginner_sectionB">Basic Sec-B Sat,Sun- 10AM- 12PM</option>
+            <option value="beginner_sectionC">Basic Sec-C Mon,Tue,Wed- 10-11:30AM</option>
+            <option value="beginner_sectionD">Basic Sec-D Wed,Thu,Fri- 9:30-11AM</option>
             <option value="lvl1-1">LEVEL 1-1 Mon,Tue,Wed- 8-9:30PM</option>
             <option value="lvl1-2">LEVEL 1-2 Fri,Sat,Sun- 5-6:30PM</option>
           </Select>
