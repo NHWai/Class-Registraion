@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import bestie from "../assests/bestie.jpg";
+import Submit from "./Submit";
 
 const RegForm = ({ handleDark }) => {
   const [formData, setFormData] = useState({
@@ -64,7 +65,6 @@ const RegForm = ({ handleDark }) => {
           eduBG: "",
         });
         setSubmit(true);
-        setTimeout(() => setSubmit(false), 3000);
       })
       .catch((err) => console.log(err));
   }
@@ -234,6 +234,7 @@ const RegForm = ({ handleDark }) => {
         ) : (
           <Button type="submit">{!submit ? "Submit" : "Submitted"}</Button>
         )}
+        {submit && <Submit />}
       </Form>
     </FormContainer>
   );
