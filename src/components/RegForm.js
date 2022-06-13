@@ -198,9 +198,9 @@ const RegForm = ({ handleDark }) => {
             <option value="basic-Sec-A">Basic Section A</option>
             <option value="basic-Sec-B">Basic Section B</option>
             <option value="basic-Sec-C">Basic Section C</option>
-            <option value="basic-Sec-D">Basic Section D</option>
             <option value="lvl1-1">Level 1-1</option>
-            <option value="lvl1-2">Level 1-2</option>
+            <option value="lvl1-2-A">Level 1-2 Section A</option>
+            <option value="lvl1-2-B">Level 1-2 Section B</option>
           </Select>
         </Field>
         <Field style={{ gridColumn: "1/-1" }}>

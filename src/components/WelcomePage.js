@@ -3,10 +3,12 @@ import Link from "./Link";
 import styled from "styled-components";
 
 import Card from "./Card";
-import mayclass from "../assests/mayclass.jpg";
-import mayclass2 from "../assests/mayclass2.jpg";
-import juneclass from "../assests/juneclass.jpg";
-import juneclass2 from "../assests/juneclass2.jpg";
+import lvl1_1 from "../assests/lvl1_1Sat&Sun.jpg";
+import lvl1_2A from "../assests/lvl1_2SectionA.jpg";
+import lvl1_2B from "../assests/lvl1_2SectionB.jpg";
+import bsA from "../assests/BasicSectionA.jpg";
+import bsB from "../assests/BasicSectionB.jpg";
+import bsC from "../assests/BasicSectionC.jpg";
 
 function WelcomePage() {
   return (
@@ -14,10 +16,12 @@ function WelcomePage() {
       <h2>Develop Your Language Skills With Besties!</h2>
       <Link href="/regform">Register Here </Link>
       <CardContainer>
-        <Card link={mayclass2} />
-        <Card link={mayclass} />
-        <Card link={juneclass2} />
-        <Card link={juneclass} />
+        <Card link={lvl1_1} />
+        <Card link={lvl1_2A} />
+        <Card link={lvl1_2B} />
+        <Card link={bsA} />
+        <Card link={bsB} />
+        <Card link={bsC} />
       </CardContainer>
     </Contain>
   );
